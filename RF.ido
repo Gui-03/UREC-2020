@@ -65,5 +65,5 @@ DateTime get_time(void)
 
 void set_rtc_alarm(int secs)
 {
-    rtc.setAlarm1(rtc.now() + TimeSpan(0, 0, 0, secs), DS3231_A1_Second);
+    rtc.setAlarm1(rtc.now() + TimeSpan(0, 0, secs), DS3231_A1_Second);
 }
