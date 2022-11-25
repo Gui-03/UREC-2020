@@ -4,6 +4,7 @@
 #include <SPI.h>
 
 RH_ASK driver;
+RTC_DS3231 rtc;
 
 int rf_init(void)
 {
