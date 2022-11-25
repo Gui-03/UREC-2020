@@ -25,5 +25,5 @@ void update_rtc(void)
 DateTime get_time(void)
 
 
-//Sets Recurring Alarm Interrupt from RTC. The alarm will happen in secs seconds
+//Sets RTC Alarm. The alarm will happen in secs seconds
 void set_rtc_alarm(int secs)
