@@ -19,7 +19,7 @@ int init_rtc(void)
 Asks User for date to update RTC
 year (4 digit), month(1-12), day(1-31), hour(0-23), minute(0-59), second(0-59)
 */
-void update_rtc(int year, int month, int day, int hour, int minute, int second)
+void update_rtc(void)
 
 // Gets current time from RTC in DateTime struct.
 DateTime get_time(void)
