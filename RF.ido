@@ -57,3 +57,13 @@ void update_rtc()
   }
   rtc.adjust(DateTime(newDate[0], newDate[1], newDate[2], newDate[3], newDate[4], newDate[5]));
 }
+
+DateTime get_time(void)
+{
+    return rtc.now;
+}
+
+void set_rtc_alarm(int secs)
+{
+    rtc.setAlarm1(rtc.now() + TimeSpan(0, 0, 0, secs), DS3231_A1_Second);
+}
