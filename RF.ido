@@ -68,3 +68,47 @@ void set_rtc_alarm(int secs)
 {
     rtc.setAlarm1(rtc.now() + TimeSpan(0, 0, secs), DS3231_A1_Second);
 }
+
+void print_date()
+{
+  const char dayInWords[7][4] = {"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
+
+  const char monthInWords[13][4] = {" ", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", 
+                                         "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
+
+  DateTime rtcTime = rtc.now();
+
+  int ss = rtcTime.second();
+  int mm = rtcTime.minute();
+  int hh = rtcTime.twelveHour();
+  int DD = rtcTime.dayOfTheWeek();
+  int dd = rtcTime.day();
+
+  int MM = rtcTime.month();
+  int yyyy = rtcTime.year();
+  if (dd < 10) Serial.print("0");
+  Serial.print(dd);
+  Serial.print("-");
+  Serial.print(monthInWords[MM]);
+  Serial.print("-");
+  Serial.print(yyyy);
+
+  Serial.print("  ");
+  Serial.print(dayInWords[DD]);
+  Serial.print("  ");
+
+
+  if (hh < 10) Serial.print("0");
+  Serial.print(hh);
+  Serial.print(':');
+
+  if (mm < 10) Serial.print("0");
+  Serial.print(mm);
+  Serial.print(':');
+
+  if (ss < 10) Serial.print("0");
+  Serial.print(ss);
+
+  if (rtcTime.isPM()) Serial.println(" PM");
+  else Serial.println(" AM");
+}

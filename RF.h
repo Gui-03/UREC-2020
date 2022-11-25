@@ -27,3 +27,5 @@ DateTime get_time(void);
 
 //Sets RTC Alarm. The alarm will happen in secs seconds
 void set_rtc_alarm(int secs);
+
+void print_date();
