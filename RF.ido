@@ -1,0 +1,30 @@
+#include "rf.h"
+
+RH_ASK driver;
+
+int rf_init(void)
+{
+    if(!driver.init())
+    {
+        return 0;
+    }
+    else
+    {
+        return 1;
+    }
+}
+
+void send_msg(char* msg)
+{
+    driver.send((uint8_t *)msg, strlen(msg) + 1);
+    driver.waitPacketSent();
+}
+
+int init_rtc(const int ALARM_PIN)
+{
+    rtc.begin();
+    pinMode(ALARM_PIN, INPUT_PULLUP);
+    rtc.writeSqwPinMode(DS3231_OFF);
+    rtc.disableAlarm(1);
+    rtc.clearAlarm(1);
+}
